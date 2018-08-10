@@ -47,7 +47,7 @@ class Home extends Component{
       })
     }else{
       this.setState({gProcessing: false})
-
+      clearInterval(this.timer)      
     }
   }
 
