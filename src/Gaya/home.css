@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+.home-body {
+  background-color: #e0e0e0;
+  height: 90px;
+  font-size: 1em;
+  color: #8e8e8e;
+  width: 500px;
+  margin: auto;
+  border-radius: 3px;
+}
+
+.home-header-title {
+  text-align: center;
+  line-height: 90px;
+  font-weight: bold;
+}
+
+.or {
+  text-align: center;
+  margin: auto;
+  padding: 5px;
+  color: #8e8e8e;
+  font-size: 24px;
+}
+
+.button-wrapper {
+  height: auto;
+  width: 500px;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.button-section {
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  flex-flow: wrap;
+}
+
+.btn {
+  width: 100%;
+  border: 5px solid white;
+  height: 80px;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn.btn-facebook {
+  background-color: #4672c9;
+  color: white;
+  width: 478px;
+  height: 80px;
+  font-size: 25px;
+}
+
+.btn.btn-google {
+  background-color: #ff4949;
+  color: white;
+}
+
+.footer {
+  width: 510px;
+  margin: auto;
+  padding: 5px;
+}
+
+.footer-wrapper {
+  background-color: #e0e0e0;
+  border-left: 5px solid #8e8e8e;
+  height: 65px;
+  border-radius: 3px;
+}
+
+.footer-content {
+  padding-top: 12px;
+  padding-left: 15px;
+  font-size: 15px;
+  color: #878787;
+}

@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+.sl-body {
+  border: 1px solid #bfbfbf;
+  width: 800px;
+  height: 100px;
+  margin: auto;
+  background-color: #e0e0e0;
+}
+
+.sl-header-title {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  color: #8e8e8e;
+}
+
+.sl-button {
+  padding-top: 30px;
+  margin: auto;
+  width: 300px;
+}
+
+.sl-logout {
+  width: 300px;
+  height: 60px;
+  font-size: 20px;
+}
