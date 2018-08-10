@@ -20,6 +20,7 @@
 
 .or {
   text-align: center;
+  width: 100%;
   margin: auto;
   padding: 5px;
   color: #8e8e8e;
@@ -81,4 +82,11 @@
   padding-left: 15px;
   font-size: 15px;
   color: #878787;
+}
+
+@media screen and (max-width: 600px){
+  .home-body {width: 100%}
+  .btn.btn-facebook {width: 340px;}
+  .button-wrapper {width: 100%;}
+  .footer {width: 100%;}
 }

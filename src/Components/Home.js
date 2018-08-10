@@ -110,7 +110,7 @@ class Home extends Component{
               />
             <h1 className='or'>Or</h1>
             <GoogleLogin
-              clientId="1078551248827-nhrd5pngljqmg4ng043rctbe8p369q6a.apps.googleusercontent.com"
+              clientId="1078551248827-r4hg5l5e5uvjdvgegk514gmksi8t8k94.apps.googleusercontent.com"
               buttonText="Login with Google"
               onSuccess={this.responseGoogle.bind(this)}
               className='btn btn-google'
