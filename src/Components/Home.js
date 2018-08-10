@@ -101,6 +101,7 @@ class Home extends Component{
           <div className='button-section'>
             <FacebookLogin
               appId="298616737366486"
+              redirectUri='https://oauth-gb-app.herokuapp.com/'
               autoLoad={false}
               fields="name,email,picture"
               onClick={this.FstartP.bind(this)}
