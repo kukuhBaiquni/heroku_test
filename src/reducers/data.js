@@ -4,11 +4,10 @@ export default function status(state = initialState, action){
   switch (action.type) {
 
     case 'PROCESS_SUCCESS':
-    return [...state, action.newData.data]
+    return [action.newData.data, ...state]
 
     case 'GET_OK':
-    console.log('res get' ,action.data.data);
-    return action.data.data
+    return action.data.data.reverse()
 
     default:
     return state

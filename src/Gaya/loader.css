@@ -1,5 +1,5 @@
 .loader {
-  border: 3px solid #899ec6;
+  border: 3px solid #b2b2b2;
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -15,7 +15,9 @@
 }
 
 .loader.google{
-  border-top: 5px solid #ff4949;
+  border-top: 5px solid #f3f3f3;
+  margin-top: 142px;
+  margin-left: 84px;
 }
 
 /* Safari */

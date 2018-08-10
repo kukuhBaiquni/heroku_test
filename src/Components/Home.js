@@ -26,12 +26,11 @@ class Home extends Component{
   }
 
   responseFacebook = (response) => {
-    console.log(response.status);
-    if (response.status !== '') {
+    if (response.name) {
       this.setState({
         facebookImage: response.picture.data.url,
         facebookName: response.name,
-        facebookId: response.userID,
+        facebookId: Date.now(),
       })
     }else{
       this.setState({fProcessing: false})
@@ -40,11 +39,16 @@ class Home extends Component{
   }
 
   responseGoogle = (response) => {
-    this.setState({
-      googleId: response.profileObj.googleId,
-      googleImage: response.profileObj.imageUrl,
-      googleName: response.profileObj.name,
-    })
+    if (response.profileObj.name) {
+      this.setState({
+        googleId: Date.now(),
+        googleImage: response.profileObj.imageUrl,
+        googleName: response.profileObj.name,
+      })
+    }else{
+      this.setState({gProcessing: false})
+
+    }
   }
 
   componentDidMount(){
@@ -52,12 +56,27 @@ class Home extends Component{
   }
 
   GstartP(){
-    console.log('master');
+    this.timer = setInterval(() => this.tickG(), 1000)
+    this.setState({gProcessing: true, provider: 'Google'})
+  }
+
+  tickG(){
+    if (this.state.googleId !== '') {
+      let data = {
+        id: this.state.googleId,
+        name: this.state.googleName,
+        image: this.state.googleImage,
+        provider: this.state.provider
+      }
+      this.props.dispatch(trigger(data))
+      this.setState({gProcessing: false})
+      clearInterval(this.timer)
+    }
   }
 
   FstartP(){
     this.timer = setInterval(() => this.tickF(), 1000)
-    this.setState({fProcessing: true})
+    this.setState({fProcessing: true, provider: 'Facebook'})
   }
 
   tickF(){
@@ -66,6 +85,7 @@ class Home extends Component{
         id: this.state.facebookId,
         name: this.state.facebookName,
         image: this.state.facebookImage,
+        provider: this.state.provider,
       }
       this.props.dispatch(trigger(data))
       this.setState({fProcessing: false})
@@ -98,6 +118,10 @@ class Home extends Component{
               className='btn btn-google'
               onRequest={this.GstartP.bind(this)}
               />
+            {
+              this.state.gProcessing &&
+              <div className='loader google'></div>
+            }
           </div>
         </div>
         <LatestVisitor data={this.props.data} />

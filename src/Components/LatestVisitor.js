@@ -23,7 +23,7 @@ export default class LatestVisitor extends Component {
                       <p className='visitor-name'>{x.name}</p>
                       <p className='visitor-via'>- via {x.provider}</p>
                     </div>
-                    <p className='visitor-date'>{moment(Number(x.date)).format('MMM DD \'18 - HH:mm')}</p>
+                    <p className='visitor-date'>{moment(Number(x.id)).format('MMM DD \'18 - HH:mm')}</p>
                   </div>
                 </div>
               </div>
