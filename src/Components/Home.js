@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import '../Gaya/home.css';
 import '../Gaya/loader.css';
 import LatestVisitor from './LatestVisitor'
-import request from 'superagent';
-import {SERVER_URL} from '../config'
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import {connect} from 'react-redux';
@@ -47,7 +45,7 @@ class Home extends Component{
       })
     }else{
       this.setState({gProcessing: false})
-      clearInterval(this.timer)      
+      clearInterval(this.timer)
     }
   }
 
