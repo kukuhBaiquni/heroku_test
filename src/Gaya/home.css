@@ -32,6 +32,12 @@
   flex-flow: wrap;
 }
 
+.loader-wrapper {
+  margin: auto;
+  height: 80px;
+  width: 500px;
+}
+
 .h-image {
   height: 50px;
   width: 50px;

@@ -25,6 +25,28 @@ const processFail = () => {
   return {type: 'PROCESS_FAIL'}
 };
 
+const newUser = (user) => {
+  return {type: 'USER_LOGGED_IN', user}
+}
+
+const tokenExpired = () => {
+  return {type: 'TOKEN_EXPIRED'}
+}
+
+export const parseUserToken = (token) => {
+  return {type: 'PARSE_TOKEN', token}
+}
+
+export function logoutAttempt(){
+  localStorage.removeItem('token')
+  return {type: 'REMOVE_USER'}
+}
+
+const stoper = () => {
+  console.log('lol');
+  return {type: 'RESET_STATUS'}
+}
+
 // =======================================================GET===================================================
 // =============================================================================================================
 
@@ -85,16 +107,48 @@ function* workerPost(data){
               })
     })
     var newData = JSON.parse(response.text)
+    localStorage.setItem('token', newData.token)
     yield put(processOK(newData))
+    yield put(newUser(newData))
     yield put(processEnd())
   } catch (error) {
     yield put(processFail())
+    yield put(processEnd())
+  }
+}
+
+function* checkUserWatcher(token){
+  yield takeEvery('PARSE_TOKEN', checkUserWorker)
+}
+
+function* checkUserWorker(token){
+  try {
+    yield put(stoper())
+    var response = yield call(() => {
+      return request
+              .get(`${SERVER_URL}parse-token/${token.token}`)
+              .set('Content-Type', 'application/json')
+              .set('Accept', 'application/json')
+              .then(function(res){
+                return res
+              })
+    })
+    var user = JSON.parse(response.text)
+    if (user.token) {
+      yield put(tokenExpired())
+    }else{
+      yield put(newUser(user))
+    }
+    yield put(processEnd())
+  } catch (error) {
+    yield put(processEnd())
   }
 }
 
 export default function* rootSaga(){
   yield all([
     watcherPost(),
-    watcherGet()
+    watcherGet(),
+    checkUserWatcher(),
   ])
 }

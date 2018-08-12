@@ -12,13 +12,6 @@ export default class Chatbox extends Component {
     }
   }
 
-  componentDidMount(){
-    var socket = io('http://localhost:3001')
-    socket.on('data', function(data){
-      console.log(data);
-    })
-  }
-
   sendChat(e){
     var socket = io('http://localhost:3001')
     e.preventDefault()
@@ -28,7 +21,7 @@ export default class Chatbox extends Component {
       time: Date.now()
     })
     socket.on('data', function(data){
-      console.log(data);
+      console.log('pppp',data);
     })
   }
 

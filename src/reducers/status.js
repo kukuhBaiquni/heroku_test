@@ -3,7 +3,7 @@ let initialState = {
   error: false,
   fetching: true,
   fetchError: false,
-  isLogin: false,
+  isLogin: false
 }
 
 export default function status(state = initialState, action){
@@ -17,6 +17,7 @@ export default function status(state = initialState, action){
 
     case 'PROCESS_END':
     initialState.loading = false
+    initialState.isLogin = true
     return initialState
 
     case 'PROCESS_FAIL':
@@ -35,6 +36,10 @@ export default function status(state = initialState, action){
 
     case 'GET_FAIL':
     initialState.fetchError = true
+    return initialState
+
+    case 'RESET_STATUS':
+    initialState.isLogin = false
     return initialState
 
     default:
