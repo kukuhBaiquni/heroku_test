@@ -6,6 +6,7 @@ import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import {connect} from 'react-redux';
 import {trigger, getData} from '../actions/Saga'
+import Chatbox from './Chatbox'
 
 class Home extends Component{
   constructor(props){
@@ -95,7 +96,21 @@ class Home extends Component{
     return(
       <div>
         <div className='home-body'>
-          <h1 className='home-header-title'>Guest Book App</h1>
+          <h1 className='home-header-title'>Whats App Prototype</h1>
+        </div>
+        <div className='h-logged'>
+          <div className='h-user'>
+            <div className='h-wrapper'>
+              <div className='h-image'></div>
+              <div className='h-stacker'>
+                <h1 className='h-username'><b>Nama User</b></h1>
+                <p className='h-via'>Login via Facebook</p>
+              </div>
+              <div className='h-logout'>
+                <span className='glyphicon glyphicon-log-out' id='icoon'></span>
+              </div>
+            </div>
+          </div>
         </div>
         <div className='button-wrapper'>
           <div className='button-section'>
@@ -123,6 +138,7 @@ class Home extends Component{
             }
           </div>
         </div>
+        <Chatbox />
         <LatestVisitor data={this.props.data} />
         <div className='footer'>
           <div className='footer-wrapper'>

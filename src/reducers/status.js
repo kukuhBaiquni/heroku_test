@@ -2,7 +2,8 @@ let initialState = {
   loading: false,
   error: false,
   fetching: true,
-  fetchError: false
+  fetchError: false,
+  isLogin: false,
 }
 
 export default function status(state = initialState, action){
